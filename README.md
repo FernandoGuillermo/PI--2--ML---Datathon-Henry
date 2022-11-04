@@ -42,39 +42,35 @@
 ##### Como se aclara en el problema, en los tipos de variables, la cantidad de dormitorios son relevantes en otros países y no en Colombia. Consecuentemente, si se interpreta que en Colombia no es relevante la cantidad de dormitorios, podría decirse que  un departamento  de 1 habitación costaría lo mismo o no que un departamento de dos habitaciones (o dormitorios) estando uno al lado del otro.  Es decir, estaría determinado por el juego de la oferta y demanda de 1, 2, 3 o más habitaciones. 
 ##### Por otro lado, la fechas nos ayudan a contextualizar el modelo en un determinado periodo. Brevemente se podría decir que sería complejo que nuestro modelo pueda predecir bien ya que en el año 2020 nos encontrábamos en plena pandemia, y con tal incertidumbre y volatilidad de precios, sería difícil llegar a una buena predicción. La falta de datos en las variables que intuitivamente podrían ser determinantes,  también eventualmente reflejarían  esta situación de crisis o no.
 
+### Algoritmo utilizado
+##### En este caso,  al no darle importancia en el problema a la variable (dormitorios) y los pocos datos en las variables dormitorio y metros cuadrados,  que se intuye son que determinantes en la predicción, no hacemos análisis de correlación. Es decir, se descarta análisis de varianza. Normalizamos, codificamos y le aplicamos el algoritmo. 
+
+#### HistGradientBoostingClassifier
+##### Este estimador es mucho más rápido que GradientBoostingClassifier para grandes conjuntos de datos (n_muestras >= 10 000).Este estimador tiene soporte nativo para valores faltantes (NaN). 
+
+##### Más info 
+##### [HistGradientBoostingClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html "HistGradientBoostingClassifier")
+##### [Histogram Boosting Gradient Classifier]( https://www.analyticsvidhya.com/blog/2022/01/histogram-boosting-gradient-classifier/ "Histogram Boosting Gradient Classifier")
 
 
 
+### Evaluacion del modelo
 
+##### True Positive: El valor real es positivo y la prueba predijo tambien que era positivo. Una persona propiedad es cara y la prueba así lo demuestra.
+##### True Negative: El valor real  es negativo y la prueba predijo tambien que el resultado era negativo. O bien la propiedad es barata y la prueba así lo  demuestra.
+##### Falso negative: El valor real es positivo, y la prueba predijo  que el resultado es negativo. La propiedad es cara, pero la prueba dice que la propiedad es barata. 
+##### Falso positive: El valor real es negativo, y la prueba predijo  que el resultado es positivo. La propiedad es barata, pero la prueba nos dice que es cara.
+##### Para un inversor lo importante sería estimar si una propiedad esta en buen precio o barata . Consecuentemente en este caso se debe evaluar la capacidad del modelo de clasificar bien las propiedades baratas. Para ello tendríamos que tener los Falsos Negative lo más bajo posible. Esto quiere decir que mientras mayor (menor) sea el valor de Falsos Positivos, la predicción no (si) clasifica correctamente las propiedades baratas.
 
+##### Medias
+##### Accuracy: 0.850214377192494 
+##### Recall:  0.5217681652700287
+##### Especificidad: 0.9511010534116775
+##### Conclusion
+#####  El modelo acierta un 0.85 sobre los casos totales, es decir, los resultados positivos sobre el total de casos sería una buena medida pero no suficiente. Para ello, como se comentó anteriormente, un inversor va a adquirir una propiedad si está barata o a “buen precio”por debajo del promedio, por lo tanto es necesario buscar una medida que nos permita evaluar esta situación
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+##### La especificidad nos va a indicar la  capacidad de detectar si las propiedades son baratas.
+##### Finalmente, si una propiedad está por debajo del promedio, hay un 0.95 de que esa propiedad esté clasificada por el modelo como barata, y por lo tanto convendría realizar la inversión.
 
 
 
