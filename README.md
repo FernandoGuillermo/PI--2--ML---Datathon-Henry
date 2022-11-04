@@ -37,16 +37,25 @@
 
 ## Veamos el siguiente gráfico
 
+[![msno](https://github.com/FernandoGuillermo/PI--2--ML---Datathon-Henry/blob/main/Images/msno.bar.png?raw=true "msno")](https://github.com/FernandoGuillermo/PI--2--ML---Datathon-Henry/blob/main/Images/msno.bar.png?raw=true "msno")
+
+
 ##### Se observa que:
 ##### Teniendo conocimientos del dominio de la actividad podríamos conocer intuitivamente cuales son las variables más importantes a la hora de predecir si una propiedad es cara o barata. La superficie cuadrada y la cantidad de habitaciones deberían ser determinantes para ello pero qué ocurre aquí?, porque existen gran cantidad de datos faltantes en estas variables? Y como puede afectar a mi modelo estas variables que según mi conocimiento de dominio.
 ##### Como se aclara en el problema, en los tipos de variables, la cantidad de dormitorios son relevantes en otros países y no en Colombia. Consecuentemente, si se interpreta que en Colombia no es relevante la cantidad de dormitorios, podría decirse que  un departamento  de 1 habitación costaría lo mismo o no que un departamento de dos habitaciones (o dormitorios) estando uno al lado del otro.  Es decir, estaría determinado por el juego de la oferta y demanda de 1, 2, 3 o más habitaciones. 
 ##### Por otro lado, la fechas nos ayudan a contextualizar el modelo en un determinado periodo. Brevemente se podría decir que sería complejo que nuestro modelo pueda predecir bien ya que en el año 2020 nos encontrábamos en plena pandemia, y con tal incertidumbre y volatilidad de precios, sería difícil llegar a una buena predicción. La falta de datos en las variables que intuitivamente podrían ser determinantes,  también eventualmente reflejarían  esta situación de crisis o no.
+
+## Columnas a utilizar
+
+[![matrix](https://github.com/FernandoGuillermo/PI--2--ML---Datathon-Henry/blob/main/Images/msno.matrix.png?raw=true "matrix")](https://github.com/FernandoGuillermo/PI--2--ML---Datathon-Henry/blob/main/Images/msno.matrix.png?raw=true "matrix")
 
 ### Algoritmo utilizado
 ##### En este caso,  al no darle importancia en el problema a la variable (dormitorios) y los pocos datos en las variables dormitorio y metros cuadrados,  que se intuye son que determinantes en la predicción, no hacemos análisis de correlación. Es decir, se descarta análisis de varianza. Normalizamos, codificamos y le aplicamos el algoritmo. 
 
 #### HistGradientBoostingClassifier
 ##### Este estimador es mucho más rápido que GradientBoostingClassifier para grandes conjuntos de datos (n_muestras >= 10 000).Este estimador tiene soporte nativo para valores faltantes (NaN). 
+
+[![Ensemble](https://editor.analyticsvidhya.com/uploads/617455.png "Ensamble")](https://editor.analyticsvidhya.com/uploads/617455.png "Ensemble")
 
 ##### Más info 
 ##### [HistGradientBoostingClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html "HistGradientBoostingClassifier")
@@ -55,6 +64,9 @@
 
 
 ### Evaluación del modelo
+[![Confuction Matrix](https://github.com/FernandoGuillermo/PI--2--ML---Datathon-Henry/blob/main/Images/matrix_confusion.png?raw=true "Confuction Matrix")](https://github.com/FernandoGuillermo/PI--2--ML---Datathon-Henry/blob/main/Images/matrix_confusion.png?raw=true "Confuction Matrix")
+
+
 
 ##### True Positive: El valor real es positivo y la prueba predijo tambien que era positivo. Una persona propiedad es cara y la prueba así lo demuestra.
 ##### True Negative: El valor real  es negativo y la prueba predijo tambien que el resultado era negativo. O bien la propiedad es barata y la prueba así lo  demuestra.
