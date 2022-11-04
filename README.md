@@ -54,7 +54,7 @@
 
 
 
-### Evaluacion del modelo
+### Evaluación del modelo
 
 ##### True Positive: El valor real es positivo y la prueba predijo tambien que era positivo. Una persona propiedad es cara y la prueba así lo demuestra.
 ##### True Negative: El valor real  es negativo y la prueba predijo tambien que el resultado era negativo. O bien la propiedad es barata y la prueba así lo  demuestra.
@@ -66,7 +66,7 @@
 ##### Accuracy: 0.850214377192494 
 ##### Recall:  0.5217681652700287
 ##### Especificidad: 0.9511010534116775
-##### Conclusion
+##### Conclusión
 #####  El modelo acierta un 0.85 sobre los casos totales, es decir, los resultados positivos sobre el total de casos sería una buena medida pero no suficiente. Para ello, como se comentó anteriormente, un inversor va a adquirir una propiedad si está barata o a “buen precio”por debajo del promedio, por lo tanto es necesario buscar una medida que nos permita evaluar esta situación
 
 ##### La especificidad nos va a indicar la  capacidad de detectar si las propiedades son baratas.
